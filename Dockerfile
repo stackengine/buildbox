@@ -3,7 +3,8 @@ RUN yum install -y epel-release
 RUN sed -i 's/https/http/' /etc/yum.repos.d/epel.repo
 RUN yum install -y docker-io wget 
 RUN wget http://s3tools.org/repo/RHEL_6/s3tools.repo -O /etc/yum.repos.d/s3tools.repo
-RUN yum install -y s3cmd mercurial bzr git sqlite-devel tar bash make ssh gcc
+RUN yun install -y bzr
+RUN yum install -y s3cmd mercurial git sqlite-devel tar bash make ssh gcc
 RUN wget https://storage.googleapis.com/golang/go1.4.2.linux-amd64.tar.gz 
 RUN tar -C /usr/local -xzf go1.4.2.linux-amd64.tar.gz
 RUN adduser stackengine
