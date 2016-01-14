@@ -10,7 +10,7 @@ COPY bzr.patch /usr/lib64/python2.6/site-packages/bzr.patch
 RUN patch -d /usr/lib64/python2.6/site-packages -p0 < /usr/lib64/python2.6/site-packages/bzr.patch
 # download go 1.4.x needed for bootstrapping cloudflare 1.5 to /root/go1.4/
 RUN curl -s https://storage.googleapis.com/golang/go1.4.3.linux-amd64.tar.gz | tar -vxz --xform 's|^go|go1.4|' -C /root
-RUN mkdir -p /usr/local/src && cd /usr/local/src && git clone https://github.com/cloudflare/go.git
+RUN mkdir -p /usr/local/src && cd /usr/local/src && git clone --branch go1.5.3-cloudflare1 https://github.com/cloudflare/go.git
 RUN cd /usr/local/src/go/src && ./all.bash
 RUN adduser stackengine
 RUN mkdir -p /go/src/github.com/stackengine/controller && mkdir -p /go/{bin,pkg}
