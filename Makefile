@@ -1,5 +1,5 @@
 
-	IMAGE = stackengine/oel_buildbox:1.0.7
+	IMAGE = stackengine/buildbox:1.0.9
 
 build:
 	docker build --tag=$(IMAGE) .
