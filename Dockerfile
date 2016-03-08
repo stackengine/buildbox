@@ -6,6 +6,10 @@ RUN yum install -y http://download.fedoraproject.org/pub/epel/6/x86_64/epel-rele
 RUN yum install -y docker-io wget 
 RUN yum install -y bzr patch s3cmd mercurial git sqlite-devel tar bash make ssh gcc
 
+# for fpm
+RUN yum install -y rpm ruby-devel rubygems
+RUN gem install fpm
+
 # download go 1.4.x needed for bootstrapping cloudflare 1.5 to /root/go1.4/
 RUN curl -s https://storage.googleapis.com/golang/go1.4.3.linux-amd64.tar.gz | tar -vxz --xform 's|^go|go1.4|' -C /root
 RUN mkdir -p /usr/local/src && cd /usr/local/src && git clone --branch go1.5.3-cloudflare1 https://github.com/cloudflare/go.git
