@@ -7,7 +7,9 @@ RUN yum install -y docker-io wget
 RUN yum install -y bzr patch s3cmd mercurial git sqlite-devel tar bash make ssh gcc
 
 # for fpm
-RUN yum install -y rpm ruby-devel rubygems
+RUN yum install -y rpm rpm-build ruby-devel rubygems
+RUN wget http://rpms.southbridge.ru/rhel6/ruby-1.9.3/x86_64/ruby-1.9.3.p547-1.el6.x86_64.rpm
+RUN yum install -y ruby-1.9.3.p547-1.el6.x86_64.rpm
 RUN gem install fpm
 
 # download go 1.4.x needed for bootstrapping cloudflare 1.5 to /root/go1.4/
