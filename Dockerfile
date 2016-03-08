@@ -16,9 +16,10 @@ COPY bzr.patch /usr/lib64/python2.6/site-packages/bzr.patch
 RUN patch -d /usr/lib64/python2.6/site-packages -p0 < /usr/lib64/python2.6/site-packages/bzr.patch
 
 RUN adduser stackengine
-RUN mkdir -p /go/src/github.com/stackengine/controller && mkdir -p /go/{bin,pkg}
+RUN mkdir -p /go/src/orahub.oraclecorp.com/opc-cs-dev/occs/controller && mkdir -p /go/{bin,pkg}
 ENV GOPATH /go
+ENV GO15VENDOREXPERIMENT 1
 ENV PATH /go/bin:/usr/local/src/go/bin:$PATH
-WORKDIR /go/src/github.com/stackengine/controller
+WORKDIR /go/src/orahub.oraclecorp.com/opc-cs-dev/occs/controller
 RUN chown stackengine:stackengine -R /go
 USER stackengine
