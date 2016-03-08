@@ -26,6 +26,13 @@ RUN mkdir -p /go/src/orahub.oraclecorp.com/opc-cs-dev/occs/controller && mkdir -
 ENV GOPATH /go
 ENV GO15VENDOREXPERIMENT 1
 ENV PATH /go/bin:/usr/local/src/go/bin:$PATH
+
+# download golint
+RUN go get -u github.com/golang/lint/golint && \
+	cd /go/src/github.com/golang/lint/ && \
+	git checkout 32a87160691b3c96046c0c678fe57c5bef761456 && \
+	go install ./golint
+
 WORKDIR /go/src/orahub.oraclecorp.com/opc-cs-dev/occs/controller
 RUN chown stackengine:stackengine -R /go
 USER stackengine
