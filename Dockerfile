@@ -33,6 +33,6 @@ RUN go get -u github.com/golang/lint/golint && \
 	git checkout 32a87160691b3c96046c0c678fe57c5bef761456 && \
 	go install ./golint
 
-WORKDIR /go/src/orahub.oraclecorp.com/opc-cs-dev/occs/controller
+WORKDIR /go/src/orahub.oraclecorp.com/opc-cs-dev/occs
 RUN chown stackengine:stackengine -R /go
 USER stackengine
