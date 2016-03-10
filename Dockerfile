@@ -33,6 +33,12 @@ RUN go get -u github.com/golang/lint/golint && \
 	git checkout 32a87160691b3c96046c0c678fe57c5bef761456 && \
 	go install ./golint
 
+# download and install npm, gulp, karma for the ui nodejs
+RUN curl --silent --location https://rpm.nodesource.com/setup_5.x | bash - &&
+	yum -y install nodejs &&
+	npm install -g gulp &&
+	npm install -g karma
+
 WORKDIR /go/src/orahub.oraclecorp.com/opc-cs-dev/occs
 RUN chown stackengine:stackengine -R /go
 USER stackengine
