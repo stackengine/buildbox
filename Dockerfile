@@ -34,9 +34,9 @@ RUN go get -u github.com/golang/lint/golint && \
 	go install ./golint
 
 # download and install npm, gulp, karma for the ui nodejs
-RUN curl --silent --location https://rpm.nodesource.com/setup_5.x | bash - &&
-	yum -y install nodejs &&
-	npm install -g gulp &&
+RUN curl --silent --location https://rpm.nodesource.com/setup_5.x | bash - && \
+	yum -y install nodejs && \
+	npm install -g gulp && \
 	npm install -g karma
 
 WORKDIR /go/src/orahub.oraclecorp.com/opc-cs-dev/occs
