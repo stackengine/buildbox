@@ -34,7 +34,10 @@ RUN go get -u github.com/golang/lint/golint && \
 	go install ./golint
 
 # download and install npm, gulp, karma for the ui nodejs
-RUN curl --silent --location https://rpm.nodesource.com/setup_5.x | bash - && \
+RUN yum -y install gcc gcc-c++ make flex bison gperf ruby \
+	openssl-devel freetype-devel fontconfig-devel libicu-devel sqlite-devel \
+	libpng-devel libjpeg-devel && \
+	curl --silent --location https://rpm.nodesource.com/setup_5.x | bash - && \
 	yum -y install nodejs && \
 	npm install -g gulp && \
 	npm install -g karma
