@@ -1,4 +1,4 @@
-IMAGE=stackengine/buildbox:1.0.17
+IMAGE=stackengine/buildbox:1.0.16
 
 build:
 	docker build --tag=$(IMAGE) .
